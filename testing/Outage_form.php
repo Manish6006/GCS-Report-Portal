@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
 	$productname=$_POST['productname'];
 	$customername=$_POST['customername'];
 
-// echo $statement."".$incident."".$severity;
+ echo $statement."".$incident."".$severity;
 		
 		require 'PHPMailer/PHPMailerAutoLoad.php';
 
@@ -43,8 +43,8 @@ if(isset($_POST['submit'])){
 		    $mail->Port = 587;                                    // TCP port to connect to
 
 		    //Recipients
-		    $mail->setFrom('chutokumar20@gmail.com', 'Sd Global');
-		    $mail->addAddress('manish.sharma591@gmail.com', 'Manish Kumar Sharma');     // Add a recipient
+		    $mail->setFrom('chutokumar20@gmail.com', 'Sd Global(Manish)');
+		    $mail->addAddress('manish.sharma591@gmail.com', 'Roopendra Kumar Sharma');     // Add a recipient
 		 
 
 		    //Content
@@ -72,93 +72,52 @@ if(isset($_POST['submit'])){
 <tr class="trr">
 <td style="background-color:#95a5a6;"><strong>Problem Statement</strong></td>
 <td colspan="3">
-				  <input
-				  type="text" 
-						style=" text-align: center; height: 51px;border: 0;" 
-						name="statement"
-						size="135"
-						value="<?php echo $statement;?>"/>
-					</td>
+				  <p> ' . $statement . ' </p>
+				  </td>
 </tr>
 
 <tr class="trr">
 <td style="background-color:#95a5a6;">Incident No </td>
 <td>
-					<input 
-					type="text" 
-					name="incident"  
-					size="46px" 
-					style="text-align: center;border: 0;
-					height: 51px;"
-					value="<?php echo $incident;?>">
+					<p> ' . $incident . ' </p>
 </td>
 
 <td style="background-color:#95a5a6;"><strong>Incident Severity</strong></td>
 <td>
-					<input  
-					type="text" 
-					name="severity" 
-					size="46px"
-					style="text-align: center;border: 0;
-					height: 51px;"
-					value="<?php echo $severity;?>">
+					<p> ' . $severity . ' </p>
 		</td>
 </tr>
 
 <tr class="trr">
 <td style="background-color:#95a5a6;">Customer Name</td>
-<td><input type="text" 
-			name="customername"
-			size="46px"
-			style="text-align: center;
-			border: 0;
-			height: 51px;"
-			value="<?php echo $customername;?>">
+<td>
+
+ 		<p> ' . $customername . ' </p>
+
 </td>
 <td style="background-color:#95a5a6;">Product Name</td>
-<td><input type="text"
-		  name="productname"
-		  size="46px"
-		  style="text-align: center;
-		  border: 0;
-		height: 51px;"
-		value="<?php echo $productname;?>">  
+<td>
+
+ 		<p> ' . $productname . ' </p>
+
 		</td>
 </tr>
 
 <tr class="trr">
 <td style="background-color:#95a5a6;"><strong>Date/time of incident (Reported)</strong>
 </td>
-<td rowspan="2"><input type="text"
-		  name="reported"
-		  size="46px" 
-		  style="text-align: center;
-		  border: 0;
-					height: 51px;"
-			value="<?php echo $reported;?>">
+<td rowspan="2">
+			<p> ' . $reported . ' </p>
 		  <br/>
 		  <br/> 
-		  
-		  <input type="text"
-		  name="restored"
-		  size="46px"
-		  style="text-align: center;
-		  border: 0;
-		   height: 51px;"
-		  value="<?php echo $restored;?>">
+		  <p> ' . $restored . ' </p>
 		</td>
 
 <td rowspan="2" style="background-color:#95a5a6;">
 	<strong>Product name and Version</strong>
 </td>
 <td rowspan="2">
-	<input type="text" 
-	style="text-align: center;
-	border: 0;
-	height: 125px;"
-	name="productversion" 
-     size="46px"
-	value="<?php echo $productversion;?>">
+	<p> ' . $productversion . ' </p>
 </td>
 </tr>
 
@@ -167,103 +126,56 @@ if(isset($_POST['submit'])){
 </tr>
 <tr>
 <td style="background-color:#95a5a6;">RCA Report Status</td>
-<td><input type="text" 
-	name="report" 
-	size="46px"
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	value="<?php echo $report;?>">
+<td>
+	<p> ' . $report . ' </p>
 	</td>
 
 <td style="background-color:#95a5a6;">RCA Submission Date(dd/mm/yy)</td>
-<td><input type="text" 
-	name="rcasubmission" 
-	size="46px"
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	value="<?php echo $rcasubmission;?>">
+<td>
+	<p> ' . $rcasubmission . ' </p>
 	</td>
 </tr>
 
 
 <tr class="trr">
 <td style="background-color:#95a5a6;">Problem Category</td>
-<td><input type="text" 
-	name="problemcat" 
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	size="46px"
-	value="<?php echo $problemcat;?>">
+<td>
+<p> ' . $problemcat . ' </p>
 	</td>
 
 <td style="background-color:#95a5a6;">Sub Category</td>
-<td><input type="text" 
-	name="subcategory"
-	size="46px"
-	style="text-align: center;
-	border: 0;
-					height: 51px;"
-	value="<?php echo $subcategory;?>">
+<td>
+<p> ' . $subcategory . ' </p>
 	</td>
 </tr>
 
 <tr class="trr">
 <td style="background-color:#95a5a6;">Service Impact</td>
-<td><input type="text" 
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	size="46px"
-	name="serviceimpact" 
-	value="<?php echo $serviceimpact;?>">
+<td>
+<p> ' . $serviceimpact . ' </p>
 </td>
 <td style="background-color:#95a5a6;">Duration of Service impact(hh:mm:ss)</td>
-<td><input type="text" 
-	name="duration" 
-	size="46px"
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	value="<?php echo $duration;?>">
+<td><
+<p> ' . $duration . ' </p>
 	</td>
 </tr>
 
 <tr>
 <td style="background-color:#95a5a6;">Incident Closure Date(dd/mm/yy)</td>
-<td><input type="text" 
-	name="closuredate" 
-	size="46px"
-	style="text-align: center;
-	border: 0;
-	height: 51px;"
-	value="<?php echo $closuredate;?>">
+<td>
+<p> ' . $closuredate . ' </p>
 	</td>
 
 <td style="background-color:#95a5a6;">Deployment Phase</td>
 <td >
-		<input type="text" 
-		name="deploymentphase"
-		size="46px"
-		style="text-align: center;
-		border: 0;
-		height: 51px;"
-		value="<?php echo $deploymentphase;?>">
+		<p> ' . $deploymentphase . ' </p>
 		</td>
 </tr>
 
 <tr class="trr">
 <td style="background-color:#95a5a6;">Current Status</td>
 <td colspan="3">
-				  <input type="text"  
-						style="text-align: center;
-						border: 0;
-					height: 51px;" 
-						name="curentstatus"
-						size="135"
-						value="<?php echo $curentstatus;?>">
+			<p> ' . $curentstatus . ' </p>
 					</td>
 </tr>
 </table>
