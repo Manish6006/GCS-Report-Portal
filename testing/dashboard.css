@@ -1,0 +1,88 @@
+body{
+
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+element.style{
+	height:100%;
+}
+
+[hidden], template{
+
+	display: none;
+}
+.HeadBanner{
+width: 100%;
+top:0px;
+min-height: 0px;
+left: 0px;
+right: 0px;
+position: relative;
+display: table;
+background-color: rgb(255,255,255,255);
+color: rgb(51,51,51);
+}
+.container-fluid{
+
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.row{
+
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.col-sm-4{
+position: relative;
+min-height: 1px;
+padding-right: 5px;
+padding-left: 5px;
+
+}
+
+.text-center{
+	text-align: center;}
+
+.footer{
+	width: 100%;
+	top: 0px;
+	min-height: 30px;
+	left: 0px;
+	right: 0px;
+	position: relative;
+	display: table;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*button design CSS*/
+
+/*FOR THE FOOTER ADDED */
+#sticky {
+  width:100%;
+  padding:20px;
+  padding-bottom:16px;
+  padding-top: 20px;
+  background:#34495e;
+  color:white;
+  font-weight:lighter;
+  font-size:15px;
+  text-align:center;
+  position:relative;    /*Here's what sticks it*/
+  bottom:0;          /*to the bottom of the body*/
+  left:0;            /*and to the left of the body.*/
+  
+}
+
+
+

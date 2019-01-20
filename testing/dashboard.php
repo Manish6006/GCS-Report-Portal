@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>Dashboard</title>
-<link rel="stylesheet" type="text/css" href="outage.css">
+<link rel="stylesheet" type="text/css" href="dashboard.css">
 
 </head>
 <body>
 
 
-<body id="body" style="height: 100%;"  data-gr-c-s-loaded="true">
+<body id="body" style="height: 70%; width: 100%; padding:auto;"  data-gr-c-s-loaded="true">
 
 	<div class="se-pre-con" style="display: none;"></div>
 
@@ -37,6 +37,18 @@
 			
 		</div>
 	</div>
+
+<!-- FOOTER -->
+ <!-- <div class="divfooter" style="padding-top: 40px;">
+<footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
+</div> -->
+	
+	<script>
+		$('.responsive-tabs').responsiveTabs({
+		  accordionOn: ['xs', 'sm']
+		});
+	</script>
+
 
 </body>
 </html>

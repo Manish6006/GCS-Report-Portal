@@ -17,7 +17,7 @@ if(isset($_POST['login'])) {
 
         $db=mysqli_select_db($conn,"cc");
 
-        $query=mysqli_query($conn, "SELECT * FROM logintable WHERE username='$username' AND password='$password'");
+        $query=mysqli_query($conn, "SELECT * FROM dashtable WHERE username='$username' AND password='$password'");
           
         $rows=mysqli_num_rows($query);
 
