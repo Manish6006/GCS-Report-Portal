@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="dashboard.css">
 <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<link rel="icon" type="image/ico" href="img/mahindraline.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -29,66 +30,7 @@
 				document.onmouseup = mousehandler;
 </script>
 
-<!-- CHART RENDER SCRIPT -->
-<script>
-window.onload = function() {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	exportEnabled: true,
-	animationEnabled: true,
-	title: {
-		text: "Desktop Browser Market Share in 2016"
-	},
-	data: [{
-		type: "pie",
-		startAngle: 25,
-		toolTipContent: "<b>{label}</b>: {y}%",
-		showInLegend: "true",
-		legendText: "{label}",
-		indexLabelFontSize: 16,
-		indexLabel: "{label} - {y}%",
-		dataPoints: [
-			{ y: 51.08, label: "Chrome" },
-			{ y: 27.34, label: "Internet Explorer" },
-			{ y: 10.62, label: "Firefox" },
-			{ y: 5.02, label: "Microsoft Edge" },
-			{ y: 4.07, label: "Safari" },
-			{ y: 1.22, label: "Opera" },
-			{ y: 0.44, label: "Others" }
-		]
-	}]
-});
-
-var chart1 = new CanvasJS.Chart("chartCont", {
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	exportEnabled: true,
-	animationEnabled: true,
-       title: {
-        text: " Passing chart options as a constructor parameter "
-      },
-      data: [
-      {
-        type: "column",
-        dataPoints: [
-        { x: 10, y: 71 },
-        { x: 20, y: 55},
-        { x: 30, y: 50 },
-        { x: 40, y: 65 },
-        { x: 50, y: 95 },
-        { x: 60, y: 68 },
-        { x: 70, y: 28 },
-        { x: 80, y: 34 },
-        { x: 90, y: 14}
-        ]
-      }
-      ]
-    });
-chart.render();
-chart1.render();
-
-}
-</script>
 
 </head>
 <body>
@@ -128,10 +70,14 @@ chart1.render();
  <!-- <div class="divfooter" style="padding-top: 40px;">
 <footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
 </div> -->
-	<div id="chartContainer" style="height: 300px; width: 100%; padding-top: 60px; border:2px;"></div>
-	<div id="chartCont" style="height: 300px; width: 100%; padding-top: 100px; border:2px;"></div>
+	
+
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+ <div class="divfooter" style="padding-top: 60px;">
+<footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
+</div>
 
 	<script>
 		$('.responsive-tabs').responsiveTabs({
