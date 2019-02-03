@@ -257,7 +257,7 @@ if(isset($_POST['submit'])){
 					padding-bottom: 5px;">
 						
 						<span style="height: 40px;">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Welcome to <?php session_start(); echo $_SESSION['usr']?>&nbsp;&nbsp;&nbsp;|&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Welcome to <?php session_start(); echo strtoupper($_SESSION['usr'])?>&nbsp;&nbsp;&nbsp;|&nbsp;
 							<a href="logout.php" style="color:white;"> Logout</a>
 						</span>
 					</div>

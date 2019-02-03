@@ -68,6 +68,7 @@ if(isset($_POST['login'])) {
 <link rel="icon" type="image/ico" href="img/mahindraline.ico">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel="stylesheet" type="text/css" href="form.css">
+  <link rel="stylesheet" type="text/css" href="button_tog.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 
@@ -113,14 +114,28 @@ document.onmouseup = mousehandler;
     <h2>Login</h2>
     <form method="POST">
       <div class="inputBox">
-        <input type="text" name="Uname" required>
-        <label>Username</label>
+        <input type="text" name="Uname" required autofocus="true">
+        <label><strong>Username</strong></label>
       </div>
 
       <div class="inputBox">
         <input type="password" name="Passwd" required>
-        <label>Password</label>
+        <label><strong>Password</strong></label>
       </div>
+
+<!-- TOGGLE BUTTON SECTION -->
+  <div class="row">
+             <div style="font-family: sans-serif;padding-left: 14px;"><strong>Dashboard</strong>
+                <span style="padding-left:150px;">
+                       <label class="switch">
+                           <input type="checkbox" name="checkbox">
+                              <span class="slider round">
+                               </span>
+                       </label>
+               </span>  
+            </div>
+</div>
+
 
       <input type="submit" name="login" value="Submit">
     </form>

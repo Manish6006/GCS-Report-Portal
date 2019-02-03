@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+	
+
 <!-- FOR HIDIND THE RIGHT CLICK OF THE MOUSE -->
 <script>
 	var isNS = (navigator.appName == "Netscape") ? 1 : 0;
@@ -57,7 +61,10 @@
 					padding-bottom: 5px;">
 						
 						<span style="height: 40px;">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Welcome to <?php session_start(); echo $_SESSION['usr']?>&nbsp;&nbsp;&nbsp;|&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Welcome to 
+		<?php session_start(); 
+		echo strtoupper($_SESSION['usr']) ?>
+		&nbsp;&nbsp;&nbsp;|&nbsp;
 							<a href="logout.php" style="color:white;"> Logout</a>
 						</span>
 					</div>
@@ -66,16 +73,96 @@
 		</div>
 	</div>
 
-<!-- FOOTER -->
- <!-- <div class="divfooter" style="padding-top: 40px;">
-<footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
-</div> -->
-	
+
+<!-- GRAPH SECTION STARTED FROM HERE -->
+
+<!-- FOR FIRST GRAPH SECTION -->
+	<div class="row">
+ 		 <div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 30px;">
+  				<canvas id="firstgraph"></canvas>
+  		</div>
+  
+  			<div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 30px;">
+  					<canvas id="secondgraph"></canvas>
+  			</div>
+	</div>
+
+<!-- FIRST GRAPH -->
+ <script>
+var ctx = document.getElementById("firstgraph").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Critical", "Major", "Minor"],
+        datasets: [{
+            label: 'Count of Cases',
+            data: [3, 9, 11],
+            backgroundColor: [
+                'rgba(255,0,0)',
+                'rgba(0,255,0)',
+                'rgba(0,0,255)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+    </script>
+
+<!-- SECOND GRAPH -->
+<script>
+
+var ctx1 = document.getElementById("secondgraph").getContext('2d');
+var myChart1 = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+        labels: ["Within SLA", "Without SLA", "NA"],
+        datasets: [{
+            label: 'SLA',
+            data: [12, 7, 3],
+            backgroundColor: [
+                'rgba(255,0,0)',
+                'rgba(0,255,0)',
+                'rgba(0,0,255)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+    </script>
+
 
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
- <div class="divfooter" style="padding-top: 60px;">
+ <div class="divfooter" style="padding-top:250px;">
 <footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
 </div>
 
