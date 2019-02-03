@@ -10,7 +10,10 @@ if(isset($_POST['login'])) {
 
       $error="Username or Password is invalid";
 
-    }else if ($_POST['Uname'] =="pala.anjaneyulu"  &&  $_POST['Passwd']=="pala"){
+    }
+
+   // TOGGLE BUTTON VALIDATION AND DASHBOARD PAGE RENDERING 
+       else if(isset($_POST['checkbox'])){
        $username=$_POST['Uname'];
        $password=$_POST['Passwd'];
         $conn=mysqli_connect("localhost","root","");
@@ -29,7 +32,9 @@ if(isset($_POST['login'])) {
             } else{
                      $error="Username or Password is invalid";
                 } 
-       }           
+       } 
+
+       //THIS IS VALIDATION OF THE LOGIN PAGE AND RENDERING REPORT PAGE.          
     else{
 
       $username=$_POST['Uname'];
@@ -125,7 +130,7 @@ document.onmouseup = mousehandler;
 
 <!-- TOGGLE BUTTON SECTION -->
   <div class="row">
-             <div style="font-family: sans-serif;padding-left: 14px;"><strong>Dashboard</strong>
+             <div style="font-family: sans-serif;padding-left: 14px;">Dashboard
                 <span style="padding-left:150px;">
                        <label class="switch">
                            <input type="checkbox" name="checkbox">
