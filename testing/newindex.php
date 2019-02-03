@@ -78,6 +78,7 @@ if(isset($_POST['login'])) {
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!-- THIS IS NEW ADDED CODE HERE 10TH JAN,2019 -->
 <script>
 var isNS = (navigator.appName == "Netscape") ? 1 : 0;
@@ -98,6 +99,26 @@ document.onmousedown = mousehandler;
 document.onmouseup = mousehandler;
 
 </script>
+
+<!-- FOR TOGGLE BUTTON SELECTION SCRIPT -->
+<script type="text/javascript">
+  $(document).ready(function(){
+        $('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                //alert(" is checked.");
+      $("#dash").html("Dashboard Selected");
+      $("#dash").css('color', 'red');
+    
+            }
+            else if($(this).prop("checked") == false){
+               // alert("Checkbox is unchecked.");
+         $("#dash").html("Dashboard");
+         $("#dash").css('color', 'black');
+            }
+        });
+    });
+</script>
+
  </head>
 <body >
 
@@ -119,7 +140,7 @@ document.onmouseup = mousehandler;
     <h2>Login</h2>
     <form method="POST">
       <div class="inputBox">
-        <input type="text" name="Uname" required autofocus="true">
+        <input type="text" name="Uname" required >
         <label><strong>Username</strong></label>
       </div>
 
@@ -130,8 +151,8 @@ document.onmouseup = mousehandler;
 
 <!-- TOGGLE BUTTON SECTION -->
   <div class="row">
-             <div style="font-family: sans-serif;padding-left: 14px;">Dashboard
-                <span style="padding-left:150px;">
+             <div style="font-family: sans-serif;padding-left: 14px;"><span id="dash">Dashboard</span><br/>
+                <span >
                        <label class="switch">
                            <input type="checkbox" name="checkbox">
                               <span class="slider round">
@@ -141,9 +162,10 @@ document.onmouseup = mousehandler;
             </div>
 </div>
 
-
-      <input type="submit" name="login" value="Submit">
-    </form>
+      <div align="center">
+            <input type="submit" name="login" value="Submit">
+          </form>
+      </div>
 
 </div>
 
