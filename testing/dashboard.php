@@ -87,6 +87,13 @@
   			</div>
 	</div>
 
+<!-- SECOND GRAPH SECTION -->
+      <div class="row">
+         <div class="col-md-6" style="position: relative; height:50vh; width:60vw; padding-top: 120px;">
+                <canvas id="thirdgraph"></canvas>
+        </div>
+    </div>
+
 <!-- FIRST GRAPH -->
  <script>
 var ctx = document.getElementById("firstgraph").getContext('2d');
@@ -158,7 +165,26 @@ var myChart1 = new Chart(ctx1, {
 });
     </script>
 
-
+<!-- Third Graph -->
+<script>
+new Chart(document.getElementById("thirdgraph"), {
+    type: 'pie',
+    data: {
+      labels: ["Degarded Outage", "Complete Outage", "Partial Outage"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [24,52,73]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Outage Count '
+      }
+    }
+});
+</script>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 

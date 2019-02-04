@@ -75,8 +75,6 @@ if(isset($_POST['login'])) {
   <link rel="stylesheet" type="text/css" href="form.css">
   <link rel="stylesheet" type="text/css" href="button_tog.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- THIS IS NEW ADDED CODE HERE 10TH JAN,2019 -->
