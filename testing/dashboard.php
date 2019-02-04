@@ -78,20 +78,23 @@
 
 <!-- FOR FIRST GRAPH SECTION -->
 	<div class="row">
- 		 <div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 30px;">
+ 		 <div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 60px;">
   				<canvas id="firstgraph"></canvas>
   		</div>
   
-  			<div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 30px;">
+  			<div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 60px;">
   					<canvas id="secondgraph"></canvas>
   			</div>
 	</div>
 
 <!-- SECOND GRAPH SECTION -->
       <div class="row">
-         <div class="col-md-6" style="position: relative; height:50vh; width:60vw; padding-top: 120px;">
+         <div class="col-md-6" style="position: relative; height:50vh; width:60vw; padding-top: 160px;">
                 <canvas id="thirdgraph"></canvas>
         </div>
+        <div class="col-md-6" style="position: relative; height:40vh; width:50vw; padding-top: 160px;">
+                    <canvas id="fourthgraph"></canvas>
+            </div>
     </div>
 
 <!-- FIRST GRAPH -->
@@ -185,6 +188,29 @@ new Chart(document.getElementById("thirdgraph"), {
     }
 });
 </script>
+
+
+<!-- FOURTH GRAPH -->
+<script>
+new Chart(document.getElementById("fourthgraph"), {
+    type: 'pie',
+    data: {
+      labels: ["ECP", "MDP", "MIG","MMSC"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [24,52,73,49]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Product Wise Case Count'
+      }
+    }
+});
+</script>
+
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
