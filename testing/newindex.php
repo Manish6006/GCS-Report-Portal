@@ -27,7 +27,7 @@ if(isset($_POST['login'])) {
         if($rows==1){
           //echo "logged in successfully!!!!!!"." "." ".$_POST['Uname'];
           
-                header("location:dashboard.php");
+                header("location:dashnew.php");
                 $_SESSION['usr']=$username;
             } else{
                      $error="Username or Password is invalid";
