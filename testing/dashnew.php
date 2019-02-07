@@ -88,7 +88,7 @@ $rowcount=mysqli_num_rows($result);
 
 			<!-- TABLE SECTION -->
 			<div class="table-responsive" style="padding-top: 30px;padding-left: 10px; padding-right: 10px;">
-				<table class="table table-sm table-hover" id="report_table">
+				<table class="table table-sm table-hover">
 					<thread>
 						<tr class="table-active">
 							<th>S.NO</th>
@@ -112,7 +112,7 @@ else
 
 while($row=mysqli_fetch_row($result)) {?>
  
-<tbody>
+<tbody id="report_table">
 	<tr>
 	 	<td><?php echo $row[0]?></td>
 	  	<td><?php echo $row[1]?></td>
@@ -145,7 +145,7 @@ mysqli_close($conn);
 
 			function search_table(value){
 
-				$('#report_table tbody tr').each(function(){
+				$('#report_table tr').each(function(){
 						var found='false';
 						$(this).each(function(){
 							if($(this).text().toLowerCase().indexOf(value.toLowerCase())>=0)
