@@ -5,7 +5,7 @@ $password = "";
 $dbname = "cc";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-$query="select  id,incident,customername,productname,statement,reported,duration,serviceimpact,curentstatus from details";
+$query="select  id,incident,customername,productname,statement,reported,duration,serviceimpact,curentstatus,remarks from details";
 
 
 $result=mysqli_query($conn,$query);
@@ -100,6 +100,7 @@ $rowcount=mysqli_num_rows($result);
 							<th>Time Lapsed</th>
 							<th>Outage Type</th>
 							<th>Updated Status</th>
+							<th>Remarks</th>
 						</tr>
 					</thread>
 
@@ -123,6 +124,7 @@ while($row=mysqli_fetch_row($result)) {?>
 	    <td><?php echo $row[6]?></td>
 	    <td><?php echo $row[7]?></td>
 	    <td><?php echo $row[8]?></td>
+	    <td><?php echo $row[9]?></td>
 	  </tr>
 	</tbody>
 	<?php

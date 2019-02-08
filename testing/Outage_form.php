@@ -1,7 +1,10 @@
 <?php
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
 
+//inserting the data on details table
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "cc";
 
 $success="";
 $error="";
@@ -25,8 +28,29 @@ if(isset($_POST['submit'])){
 	$restored=$_POST['restored'];
 	$productname=$_POST['productname'];
 	$customername=$_POST['customername'];
+	$remarks=$_POST['remarks'];
 
- echo $statement."".$incident."".$severity;
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "INSERT INTO details (statement,incident,severity,customername,productname,reported,restored,productversion,report,rcasubmission,problemcat,subcategory,serviceimpact,duration,closuredate,deploymentphase,curentstatus, remarks)
+VALUES ('$statement','$incident','$severity','$customername','$productname','$reported','$restored','$productversion','$report','$rcasubmission','$problemcat','$subcategory','$serviceimpact','$duration','$closuredate','$deploymentphase','$curentstatus','$remarks')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+
+
+// sending mail
+ // echo $statement."".$incident."".$severity;
 		
 		require 'PHPMailer/PHPMailerAutoLoad.php';
 
@@ -178,6 +202,12 @@ if(isset($_POST['submit'])){
 			<p> ' . $curentstatus . ' </p>
 					</td>
 </tr>
+
+<tr class="trr">
+<td style="background-color:#95a5a6;">Remarks</td>
+<td colspan="3">
+				  <p> ' . $remarks . ' </p>
+					</td
 </table>
 </form>';
 
@@ -209,7 +239,18 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="outage.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="jquery.searchable.js"></script>
+  <script type="text/javascript" src="jquery.searchable-ie.js"></script>
 	<!-- <script type="text/javascript" src="myjs.js"></script> -->
 
 <!-- THIS IS NEW ADDED CODE HERE 10TH JAN,2019 -->
@@ -266,9 +307,29 @@ if(isset($_POST['submit'])){
 		</div>
 	</div>
 
-<div class="tablediv" style="padding-top: 55px;">
-<form method="POST"> <!-- NEW CODE ADDED FROM NOW. THIS IS CONE OF NEW PROJECT-->
-<table border="1"  
+<div class="container-fluid" style="padding-top: 50px;">
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+  					<li class="nav-item">
+   						 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#newform" role="tab" aria-controls="home" aria-selected="true">Fill New Form</a>
+ 					 </li>
+  					<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+  					<li class="nav-item">
+   						 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#editform" role="tab" aria-controls="profile" aria-selected="false">Update Form</a>
+  					</li>
+  
+				</ul>
+
+<div class="tab-content" id="myTabContent" style="padding-top: 30px;">
+  <div class="tab-pane fade show active"
+  		 id="newform" 
+  		 role="tabpanel" 
+  		 aria-labelledby="home-tab">
+  	
+  		 
+  		<form method="POST"> <!-- NEW CODE ADDED FROM NOW. THIS IS CONE OF NEW PROJECT-->
+<table border="1" class="tablediv" 
 		align="center" 
 		width="90%"
 		style="border-collapse: collapse;">
@@ -300,7 +361,7 @@ if(isset($_POST['submit'])){
 					placeholder="Enter Incident Number" 
 					size="46px" 
 					style="text-align: center;border: 0;
-					height: 51px ;">
+					height: 51px ;" required>
 </td>
 
 <td style="background-color:#95a5a6;"><strong>Incident Severity</strong></td>
@@ -345,7 +406,7 @@ if(isset($_POST['submit'])){
 		  style="text-align: center;
 		  border: 0;
 					height: 51px;"
-		  placeholder="Reported">
+		  placeholder="YYYY-MM-DD HH:MM:SS">
 		  <br/>
 		  <br/> 
 		  <input type="text"
@@ -354,7 +415,7 @@ if(isset($_POST['submit'])){
 		  style="text-align: center;
 		  border: 0;
 					height: 51px;"
-		  placeholder="Restored">
+		  placeholder="YYYY-MM-DD HH:MM:SS">
 		</td>
 <td rowspan="2" style="background-color:#95a5a6;">
 	<strong>Product name and Version</strong>
@@ -382,7 +443,7 @@ size="46px"
 	border: 0;
 					height: 51px;"
 	placeholder="Enter RCA Report Status"></td>
-<td style="background-color:#95a5a6;">RCA Submission Date(dd/mm/yy)</td>
+<td style="background-color:#95a5a6;">RCA Submission Date<br>(YYYY-MM-DD)</td>
 <td><input type="text" 
 	name="rcasubmission" 
 	size="46px"
@@ -421,7 +482,7 @@ size="46px"
 					size="46px"
 	name="serviceimpact" placeholder="Enter Service Impact">
 </td>
-<td style="background-color:#95a5a6;">Duration of Service impact(hh:mm:ss)</td>
+<td style="background-color:#95a5a6;">Duration of Service impact(HH:MM:SS)</td>
 <td><input type="text" 
 	name="duration" 
 	size="46px"
@@ -432,7 +493,7 @@ size="46px"
 </tr>
 
 <tr>
-<td style="background-color:#95a5a6;">Incident Closure Date(dd/mm/yy)</td>
+<td style="background-color:#95a5a6;">Incident Closure Date<br>(YYYY-MM-DD)</td>
 <td><input type="text" 
 	name="closuredate" 
 	size="46px"
@@ -462,6 +523,18 @@ size="46px"
 						placeholder="Enter Current Status"/>
 					</td>
 </tr>
+
+<tr class="trr">
+<td style="background-color:#95a5a6;">Remarks</td>
+<td colspan="3">
+				  <input type="text"  
+						style="text-align: center;
+						border: 0;
+					height: 51px;" 
+						name="curentstatus"
+						size="135"
+						placeholder="Enter Remarks"/>
+					</td>
 </table>
 
 <!-- NEW CODE ADDED FROM NOW. THIS IS CONE OF NEW PROJECT-->
@@ -474,18 +547,38 @@ ADDING BUTTON LAYOUT-> 2019/01/09
 TASK 01
  -->
 <div class="container" align="center" style="padding-top: 25px;">
-	<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+	<input type="submit" name="submit" value="Send" class="btn btn-outline-primary" style="width: 100px;">
 </div>
 </form>
+
+  </div>
+  				<div class="tab-pane fade" id="editform" role="tabpanel" aria-labelledby="profile-tab">
+  						<div class="row">
+						<div class="col-sm">
+							<input type="text" name="search" id="search" placeholder="Enter Incident Number" class="form-control" style="width: 300px;"> 
+						</div>
+						<div class="col-sm">
+							<input type="submit" 
+							name="submit" 
+							id="submit" class="btn btn-outline-primary"> 
+						</div>
+
+					<!-- <div class="col-sm-6"></div> -->
+
+						<div class="col-sm-8">
+						</div>
+
+					</div>
+  			</div>
+		</div>
+	</div>
 </div>
+
 <!-- 
 ADDING FOOTER LAYOUT-> 2019/01/09
 TASK 01
  -->	
-
- <div class="divfooter" style="padding-top: 40px;">
-<footer id="sticky" style="font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;">&copy Copyrights 2019. All rights are reserved. Mahindra Comviva, GCS</footer>
-</div>
+ <div style="padding-top: 20px;"></div>
 	<script>
 		$('.responsive-tabs').responsiveTabs({
 		  accordionOn: ['xs', 'sm']
